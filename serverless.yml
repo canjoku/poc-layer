@@ -1,0 +1,20 @@
+service: tuum-poc-app
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: eu-west-2
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    layer:
+      name: tuum-poc-layers
+      description: "layer containing dependencies"
+      compatibleRuntimes:
+        - python3.9
